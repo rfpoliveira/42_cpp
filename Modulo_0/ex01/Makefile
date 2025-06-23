@@ -6,22 +6,22 @@
 #    By: rpedrosa <rpedrosa@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/09 13:58:20 by rpedrosa          #+#    #+#              #
-#    Updated: 2025/06/11 14:03:05 by rpedrosa         ###   ########.fr        #
+#    Updated: 2025/06/12 11:26:53 by rpedrosa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CPP = c++
 
-CPPFLAGS = -Wall -Werror -Wextra -std=c++98
+CPPFLAGS = -Wall -Werror -Wextra -g -std=c++98
 
-SRCS = megaphone.cpp
+SRCS = main.cpp Contact.cpp PhoneBook.cpp
 OBJS = $(SRCS:.cpp=.o)
-NAME = megaphone
+NAME = phonebook
 
 all: $(NAME)
 $(NAME): $(OBJS)
 	@$(CPP) $(CPPFLAGS) $(OBJS) -o $(NAME)
-	@echo "$(GRN)[megaphone compiled]$(D)"
+	@echo "$(GRN)[phonebook compiled]$(D)"
 
 #==============================================================================#
 #                                    cleaning rules                            #
@@ -32,7 +32,7 @@ clean:
 
 fclean: clean
 	@$(RM) $(NAME)
-	@echo "$(BCYA)[fclean] megaphone removed$(D)"
+	@echo "$(BCYA)[fclean] phonebook removed$(D)"
 
 re: fclean all
 

@@ -6,7 +6,7 @@
 /*   By: rpedrosa <rpedrosa@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 17:53:10 by rpedrosa          #+#    #+#             */
-/*   Updated: 2025/06/10 18:30:47 by rpedrosa         ###   ########.fr       */
+/*   Updated: 2025/06/23 15:12:19 by rpedrosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,9 @@ public:
 
 	Contact();
 	~Contact();
-	std::string getter(std::string what_to_get) const;
-	std::string setter(std::string what_to_set, std::string buffer);
+	std::string getter(int what_to_get) const;
+	void setter(int what_to_set, std::string buffer);
+	std::string truncate_info(std::string info) const;
 };
 
 #endif
