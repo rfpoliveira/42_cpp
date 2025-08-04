@@ -1,34 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpedrosa <rpedrosa@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/23 17:14:06 by rpedrosa          #+#    #+#             */
-/*   Updated: 2025/08/04 16:24:30 by rpedrosa         ###   ########.fr       */
+/*   Created: 2025/08/04 16:20:26 by rpedrosa          #+#    #+#             */
+/*   Updated: 2025/08/04 18:05:40 by rpedrosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_H
-# define ZOMBIE_H
+#include "Zombie.hpp"
 
-#include <string>
-#include <iostream>
-
-class Zombie
+int main (void)
 {
-	private:
-		std::string name;
-		
-	public:
-		Zombie();
-		~Zombie();
-		void	announce(void);
-		void	name_setter(std::string name);
-};
-
-Zombie* newZombie(std::string name);
-void	randomChump(std::string name);
-
-#endif
+	int horde_size = 1;
+	
+	Zombie *horde = zombieHorde(horde_size, "minion");
+	if (!horde)
+	{
+		std::cout << "Error, please try again." << std::endl;
+		return (1);
+	}	
+	for (int i = 0; i < horde_size; i++)
+	{
+		std::cout << i << ": ";
+		horde[i].announce();
+	}
+	delete[] horde;
+}

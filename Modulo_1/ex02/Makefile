@@ -6,7 +6,7 @@
 #    By: rpedrosa <rpedrosa@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/09 13:58:20 by rpedrosa          #+#    #+#              #
-#    Updated: 2025/08/04 16:27:18 by rpedrosa         ###   ########.fr        #
+#    Updated: 2025/08/04 18:10:59 by rpedrosa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ CPP = c++
 
 CPPFLAGS = -Wall -Werror -Wextra -g -std=c++98
 
-SRCS = main.cpp Zombie.cpp newZombie.cpp randomChump.cpp
+SRCS = main.cpp
 OBJS = $(SRCS:.cpp=.o)
 NAME = brainz
 
