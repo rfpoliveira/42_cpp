@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpedrosa <rpedrosa@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/10 17:46:00 by rpedrosa          #+#    #+#             */
-/*   Updated: 2025/08/05 11:38:13 by rpedrosa         ###   ########.fr       */
+/*   Created: 2025/08/05 16:43:09 by rpedrosa          #+#    #+#             */
+/*   Updated: 2025/08/05 16:44:37 by rpedrosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,6 @@
 # define MAIN_H
 
 #include <iostream>
-#include <string>
-#include <sstream>
-#include <iomanip>
-#include <limits>
-#include <stdlib.h>
-#include <stdio.h>
-#include <unistd.h>
-
-#include "Contact.hpp"
-#include "PhoneBook.hpp"
+#include <fstream>
 
 #endif

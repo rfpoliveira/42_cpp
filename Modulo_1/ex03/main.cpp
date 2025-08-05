@@ -1,28 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.h                                             :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpedrosa <rpedrosa@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/10 17:46:00 by rpedrosa          #+#    #+#             */
-/*   Updated: 2025/08/05 11:38:13 by rpedrosa         ###   ########.fr       */
+/*   Created: 2025/08/05 15:10:42 by rpedrosa          #+#    #+#             */
+/*   Updated: 2025/08/05 16:23:05 by rpedrosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MAIN_H
-# define MAIN_H
+#include "Weapon.h"
+#include "HumanA.hpp"
+#include "HumanB.hpp"
 
-#include <iostream>
-#include <string>
-#include <sstream>
-#include <iomanip>
-#include <limits>
-#include <stdlib.h>
-#include <stdio.h>
-#include <unistd.h>
 
-#include "Contact.hpp"
-#include "PhoneBook.hpp"
-
-#endif
+int main (void)
+{
+{
+	Weapon club = Weapon("crude spiked club");
+	HumanA bob("Bob", club);
+	bob.attack();
+	club.setType("some other type of club");
+	bob.attack();
+	}
+	{
+	Weapon club = Weapon("crude spiked club");
+	HumanB jim("Jim");
+ 	jim.setWeapon(club);
+ 	jim.attack();
+	club.setType("some other type of club");
+	jim.attack();
+	}
+	return 0;
+}

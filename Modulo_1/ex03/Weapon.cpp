@@ -1,28 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.h                                             :+:      :+:    :+:   */
+/*   Weapon.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpedrosa <rpedrosa@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/10 17:46:00 by rpedrosa          #+#    #+#             */
-/*   Updated: 2025/08/05 11:38:13 by rpedrosa         ###   ########.fr       */
+/*   Created: 2025/08/05 14:39:20 by rpedrosa          #+#    #+#             */
+/*   Updated: 2025/08/05 15:16:18 by rpedrosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MAIN_H
-# define MAIN_H
+#include "Weapon.h"
 
-#include <iostream>
-#include <string>
-#include <sstream>
-#include <iomanip>
-#include <limits>
-#include <stdlib.h>
-#include <stdio.h>
-#include <unistd.h>
+Weapon::Weapon(std::string type)
+{
+	this->type = type;	
+};
 
-#include "Contact.hpp"
-#include "PhoneBook.hpp"
+Weapon::~Weapon(){};
 
-#endif
+const std::string& Weapon::getType(void) const
+{
+	return (this->type);
+}
+
+void Weapon::setType(std::string type)
+{
+	this->type = type;
+}

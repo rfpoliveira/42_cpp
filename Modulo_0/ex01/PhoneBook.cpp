@@ -6,7 +6,7 @@
 /*   By: rpedrosa <rpedrosa@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 18:15:11 by rpedrosa          #+#    #+#             */
-/*   Updated: 2025/06/23 16:52:53 by rpedrosa         ###   ########.fr       */
+/*   Updated: 2025/08/05 11:57:30 by rpedrosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,8 @@ void	PhoneBook::add_contact(void)
 	this->contacts[this->current_contact].setter(2, get_input("Last name :"));
 	this->contacts[this->current_contact].setter(3, get_input("Nickname :"));
 	this->contacts[this->current_contact].setter(4, get_input("Phone number: "));
-	this->contacts[this->current_contact].setter(5, get_input("Darkest Secret :"));
+	this->contacts[this->current_contact].setter(5, get_input("Darkest Secret: "));
+
 	if (this->current_contact < 7)
 	{
 		if (this->list_len < 7)
@@ -102,7 +103,7 @@ void	PhoneBook::_prompt_index(void) const
 	{
 		buffer = get_input(": ");
 		index = atoi(buffer.c_str());
-		if (index < 0 || index >= this->list_len || !std::isdigit(buffer[0]))
+		if (index < 0 || index > this->list_len || !std::isdigit(buffer[0]))
 		{
 			std::cout << "Please enter a valid index" << std::flush;
 			index = -1 ;

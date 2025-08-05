@@ -1,28 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.h                                             :+:      :+:    :+:   */
+/*   Weapon.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpedrosa <rpedrosa@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/10 17:46:00 by rpedrosa          #+#    #+#             */
-/*   Updated: 2025/08/05 11:38:13 by rpedrosa         ###   ########.fr       */
+/*   Created: 2025/08/05 14:29:35 by rpedrosa          #+#    #+#             */
+/*   Updated: 2025/08/05 15:15:56 by rpedrosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MAIN_H
-# define MAIN_H
+#ifndef WEAPON_H
+# define WEAPON_H
 
 #include <iostream>
-#include <string>
-#include <sstream>
-#include <iomanip>
-#include <limits>
-#include <stdlib.h>
-#include <stdio.h>
-#include <unistd.h>
 
-#include "Contact.hpp"
-#include "PhoneBook.hpp"
+class Weapon
+{
+private:
+	std::string type;
+
+public:
+	Weapon(std::string type);
+	~Weapon();
+	const std::string& getType(void) const;
+	void setType(std::string type);
+};
 
 #endif

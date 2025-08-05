@@ -6,7 +6,7 @@
 #    By: rpedrosa <rpedrosa@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/09 13:58:20 by rpedrosa          #+#    #+#              #
-#    Updated: 2025/08/05 10:28:27 by rpedrosa         ###   ########.fr        #
+#    Updated: 2025/08/05 16:32:21 by rpedrosa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,12 +16,12 @@ CPPFLAGS = -Wall -Werror -Wextra -g -std=c++98
 
 SRCS = main.cpp
 OBJS = $(SRCS:.cpp=.o)
-NAME = brainz
+NAME = sed
 
 all: $(NAME)
 $(NAME): $(OBJS)
 	@$(CPP) $(CPPFLAGS) $(OBJS) -o $(NAME)
-	@echo "$(GRN)[brainz compiled]$(D)"
+	@echo "$(GRN)[sed compiled]$(D)"
 
 #==============================================================================#
 #                                    cleaning rules                            #
@@ -32,7 +32,7 @@ clean:
 
 fclean: clean
 	@$(RM) $(NAME)
-	@echo "$(BCYA)[fclean] brainz removed$(D)"
+	@echo "$(BCYA)[fclean] sed removed$(D)"
 
 re: fclean all
 

@@ -1,28 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.h                                             :+:      :+:    :+:   */
+/*   HumanB.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpedrosa <rpedrosa@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/10 17:46:00 by rpedrosa          #+#    #+#             */
-/*   Updated: 2025/08/05 11:38:13 by rpedrosa         ###   ########.fr       */
+/*   Created: 2025/08/05 14:38:56 by rpedrosa          #+#    #+#             */
+/*   Updated: 2025/08/05 15:34:36 by rpedrosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MAIN_H
-# define MAIN_H
+#ifndef HumanB_H
+# define HumanB_H
 
 #include <iostream>
-#include <string>
-#include <sstream>
-#include <iomanip>
-#include <limits>
-#include <stdlib.h>
-#include <stdio.h>
-#include <unistd.h>
+#include "Weapon.h"
 
-#include "Contact.hpp"
-#include "PhoneBook.hpp"
+class HumanB
+{
+private:
+	std::string name;
+	Weapon *weapon;
+
+public:
+	HumanB(std::string name);
+	~HumanB();
+	void attack(void) const;
+	void setWeapon(Weapon& weapon);
+};
 
 #endif

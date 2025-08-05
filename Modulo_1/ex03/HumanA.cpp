@@ -1,28 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.h                                             :+:      :+:    :+:   */
+/*   HumanA.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpedrosa <rpedrosa@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/10 17:46:00 by rpedrosa          #+#    #+#             */
-/*   Updated: 2025/08/05 11:38:13 by rpedrosa         ###   ########.fr       */
+/*   Created: 2025/08/05 14:53:31 by rpedrosa          #+#    #+#             */
+/*   Updated: 2025/08/05 15:30:00 by rpedrosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MAIN_H
-# define MAIN_H
+#include "Weapon.h"
+#include "HumanA.hpp"
 
-#include <iostream>
-#include <string>
-#include <sstream>
-#include <iomanip>
-#include <limits>
-#include <stdlib.h>
-#include <stdio.h>
-#include <unistd.h>
+HumanA::HumanA(std::string name, Weapon& weapon)
+	: name(name), weapon(weapon)
+{}
 
-#include "Contact.hpp"
-#include "PhoneBook.hpp"
+HumanA::~HumanA(){};
 
-#endif
+void	HumanA::attack(void) const
+{
+	std::cout << this->name << " attacks with their " << this->weapon.getType() << std::endl;
+}

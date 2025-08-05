@@ -1,0 +1,59 @@
+ADD
+One
+Oneson
+1
+111111111
+Likes 3
+ADD
+Two
+Twoson
+2
+222222222
+Likes brocoli
+ADD
+Three
+Threeson
+3
+333333333
+Likes pie
+ADD
+Four
+Fourson
+4
+444444444
+Likes Jhin
+ADD
+Five
+Fiveson
+5
+55555555
+Likes Highs
+ADD
+Six
+Sixson
+6
+666666666
+Likes 9
+ADD
+Seven
+Sevenson
+7
+777777777
+Likes playing cards
+ADD
+Eight
+Eightson
+8
+888888888
+Likes pool
+SEARCH
+0
+ADD
+Nine
+Nineson
+9
+99999999
+Likes 6
+SEARCH
+0
+
