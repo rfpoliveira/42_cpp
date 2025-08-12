@@ -6,7 +6,7 @@
 /*   By: rpedrosa <rpedrosa@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 16:32:54 by rpedrosa          #+#    #+#             */
-/*   Updated: 2025/08/05 17:12:45 by rpedrosa         ###   ########.fr       */
+/*   Updated: 2025/08/12 12:56:41 by rpedrosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,26 +19,39 @@ int main(int argc, char **argv)
 		std::cout << "Usage: ./seb <filename> <string1> <string2>";
 		return (1);
 	}
-	std::string file = (std::string)argv[1];
-	std::string string1 = (std::string)argv[2];
-	std::string string2 = (std::string)argv[3];	
-	std::ifstream	ifs(file);
-	std::ofstream	copy(file + ".replace");
+	std::string file = argv[1];
+	std::string string1 = argv[2];
+	std::string string2 = argv[3];	
+	std::ifstream	ifs(file.c_str());
 	if (!ifs)
 	{
 		std::cout << "Unable to open file.";
 		return (2);
 	}
+	file = file + ".replace";
+	std::ofstream	copy(file.c_str());
+
+	char s[256];
+	int len = string1.length();
 	char ch;
-	int i = 0;
+	std::string temp;
 	while(ifs.get(ch))
 	{
-		if (ch == argv[2][i])
+		if (ch == argv[2][0])
 		{
-			i++;
-		
+			ifs.get(s, len);
+			temp = ch + std::string(s);
+			if (temp == string1)
+				copy << string2;
+			else
+			{
+				copy << ch;
+				ifs.seekg(-len + 1, std::ios::cur);
+			}
 		}
-		if ()
-		copy << ch;
+		else
+			copy << ch;
 	}
+	ifs.close();
+	copy.close();
 }
