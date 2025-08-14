@@ -1,33 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpedrosa <rpedrosa@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/13 14:57:16 by rpedrosa          #+#    #+#             */
-/*   Updated: 2025/08/14 11:48:46 by rpedrosa         ###   ########.fr       */
+/*   Created: 2025/08/14 16:10:25 by rpedrosa          #+#    #+#             */
+/*   Updated: 2025/08/14 18:17:32 by rpedrosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FIXED_HPP
-# define FIXED_HPP
+#include <iostream>
 
-#include "iostream"
-
-class Fixed
+class ClapTrap
 {
-	private:
-		int _fixed_value;
-		static const int _fractional = 8;
-	
-	public:
-		Fixed();
-		~Fixed();
-		Fixed(const Fixed &other);
-		Fixed &operator=(const Fixed &other);
-		int getRawBits(void) const;
-		void setRawBits(int const raw);		
-};
+	protected:
+		std::string _name;
+		unsigned int _hp;
+		unsigned int _ep;
+		unsigned int _ad;
 
-#endif
+	public:
+	ClapTrap(std::string name);
+	~ClapTrap();
+	void attack(const std::string& target);
+	void takeDamage(unsigned int amout);
+	void beRepaired(unsigned int amout);
+};

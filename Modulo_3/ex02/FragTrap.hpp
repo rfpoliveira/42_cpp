@@ -1,33 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpedrosa <rpedrosa@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/13 14:57:16 by rpedrosa          #+#    #+#             */
-/*   Updated: 2025/08/14 11:48:46 by rpedrosa         ###   ########.fr       */
+/*   Created: 2025/08/14 17:30:22 by rpedrosa          #+#    #+#             */
+/*   Updated: 2025/08/14 18:34:54 by rpedrosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FIXED_HPP
-# define FIXED_HPP
+#include "ClapTrap.hpp"
 
-#include "iostream"
-
-class Fixed
+class FragTrap: public ClapTrap
 {
-	private:
-		int _fixed_value;
-		static const int _fractional = 8;
-	
 	public:
-		Fixed();
-		~Fixed();
-		Fixed(const Fixed &other);
-		Fixed &operator=(const Fixed &other);
-		int getRawBits(void) const;
-		void setRawBits(int const raw);		
-};
+		FragTrap(std::string name);
+		~FragTrap();
 
-#endif
+		void highFiveGuys(void);
+		void display_stats(void);
+};

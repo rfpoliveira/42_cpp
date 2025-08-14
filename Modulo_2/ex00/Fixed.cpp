@@ -6,7 +6,7 @@
 /*   By: rpedrosa <rpedrosa@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/13 15:03:35 by rpedrosa          #+#    #+#             */
-/*   Updated: 2025/08/13 15:42:07 by rpedrosa         ###   ########.fr       */
+/*   Updated: 2025/08/14 11:49:03 by rpedrosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,3 @@ void	Fixed::setRawBits(int const raw)
 	std::cout << "setRawBits member function called" << std::endl;
 	this->_fixed_value = raw;
 }		
-
-
-
