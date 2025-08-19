@@ -6,7 +6,7 @@
 /*   By: rpedrosa <rpedrosa@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/14 16:10:25 by rpedrosa          #+#    #+#             */
-/*   Updated: 2025/08/14 17:23:46 by rpedrosa         ###   ########.fr       */
+/*   Updated: 2025/08/19 15:54:52 by rpedrosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,10 @@ class ClapTrap
 		unsigned int _ad;
 
 	public:
+	ClapTrap();
 	ClapTrap(std::string name);
+	ClapTrap(const ClapTrap& copy);
+	ClapTrap &operator=(const ClapTrap &other);
 	~ClapTrap();
 	void attack(const std::string& target);
 	void takeDamage(unsigned int amout);

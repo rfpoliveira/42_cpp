@@ -6,7 +6,7 @@
 /*   By: rpedrosa <rpedrosa@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/18 17:08:25 by rpedrosa          #+#    #+#             */
-/*   Updated: 2025/08/19 14:46:29 by rpedrosa         ###   ########.fr       */
+/*   Updated: 2025/08/19 14:47:05 by rpedrosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,23 +63,23 @@ void Bureaucrat::decrementGrade(void)
 	this->grade++;
 }
 
-void Bureaucrat::signForm(Form& form)
+void Bureaucrat::signForm(AForm& Aform)
 {
 	int catch_false = 0;
 	try
 	{
-		form.beSigned(*this);
+		Aform.beSigned(*this);
 	}
-	catch(Form::GradeTooLowExeption& e)
+	catch(AForm::GradeTooLowExeption& e)
 	{
 		catch_false = 1;
 		std::cout << this->getName() << " cound't sign ";
-		std::cout << form.getName() << " because he's grade is too low." << std::endl;
+		std::cout << Aform.getName() << " because he's grade is too low." << std::endl;
 	}
 	if (!catch_false)
 	{
 		std::cout << this->getName() << " signed ";
-		std::cout << form.getName() << std::endl;
+		std::cout << Aform.getName() << std::endl;
 	}
 	
 }

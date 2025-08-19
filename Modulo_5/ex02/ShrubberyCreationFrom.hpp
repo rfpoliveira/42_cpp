@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*   ShrubberyCreationFrom.hpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpedrosa <rpedrosa@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/09 14:12:54 by rpedrosa          #+#    #+#             */
-/*   Updated: 2025/08/19 15:35:58 by rpedrosa         ###   ########.fr       */
+/*   Created: 2025/08/19 14:43:08 by rpedrosa          #+#    #+#             */
+/*   Updated: 2025/08/19 15:13:18 by rpedrosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#include "AForm.hpp"
 
-int	main(int argc, char **argv)
+class ShrubberyCreationForm: private AForm
 {
-	if (argc == 1)
-		std::cout << "* LOUD AND UNBERABLE FEEDBACK NOISE *";
-	for (int i = 1; i < argc; i++)
-		for (int j = 0; argv[i][j]; j++)
-			std::cout << (char)toupper(argv[i][j]);
-	std::cout << std::endl;
-	return (0);
-}
+	private:
+	std::string _target;
+
+	public:
+		ShrubberyCreationForm(std::string _target, std::string name, int exec_grade, int sign_grade);
+		~ShrubberyCreationForm();
+		
+};

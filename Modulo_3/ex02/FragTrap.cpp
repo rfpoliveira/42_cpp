@@ -6,18 +6,47 @@
 /*   By: rpedrosa <rpedrosa@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/14 17:51:10 by rpedrosa          #+#    #+#             */
-/*   Updated: 2025/08/14 18:50:08 by rpedrosa         ###   ########.fr       */
+/*   Updated: 2025/08/19 16:34:45 by rpedrosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
 
+FragTrap::FragTrap() : ClapTrap()
+{
+	std::cout << "FragTrap default constructor called" << std::endl;
+	this->_ad = 20;
+	this->_ep = 50;
+	this->_hp = 100;
+}
+
 FragTrap::FragTrap(std::string name) : ClapTrap(name)
 {
 	std::cout << "FragTrap constructor called" << std::endl;
-	this->_ad = 30;
-	this->_ep = 100;
+	this->_ad = 20;
+	this->_ep = 50;
 	this->_hp = 100;
+}
+FragTrap::FragTrap(const FragTrap &other)
+{
+	std::cout << "FragTrap Copy constructor called" << std::endl;
+	this->_name = other._name;
+	this->_ad = other._ad;
+	this->_ep = other._ep;
+	this->_hp = other._hp;
+}
+
+FragTrap& FragTrap::operator=(const FragTrap &other)
+{
+	std::cout << "FragTrap Copy assignment operator called" << std::endl;
+	if (this != &other)
+	{
+		this->_name = other._name;
+		this->_ad = other._ad;
+		this->_ep = other._ep;
+		this->_hp = other._hp;
+	}
+	return(*this);
 }
 
 FragTrap::~FragTrap()

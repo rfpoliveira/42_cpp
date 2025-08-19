@@ -1,29 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.hpp                                           :+:      :+:    :+:   */
+/*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpedrosa <rpedrosa@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/18 19:43:44 by rpedrosa          #+#    #+#             */
-/*   Updated: 2025/08/19 14:22:52 by rpedrosa         ###   ########.fr       */
+/*   Created: 2025/08/18 16:52:28 by rpedrosa          #+#    #+#             */
+/*   Updated: 2025/08/19 14:47:24 by rpedrosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+#include "AForm.hpp"
 
-class Bureaucrat;
-
-class Form
+class Bureaucrat
 {
 	private:
-		const std::string _name;
-		bool _sign;
-		const int _sign_grade;
-		const int _exec_grade;
+		const std::string name;
+		int grade;
+	
 	public:
-		Form(const std::string name, const int sign_grade, const int exec_grade);
-		~Form();
+		Bureaucrat(const std::string name, int grade);
+		~Bureaucrat();
 		class GradeTooLowExeption: public std::exception
 		{
 			public:
@@ -41,10 +39,11 @@ class Form
 				}
 		};
 		const std::string getName(void) const;
-		bool getSignStatus(void) const;
-		int getSignGrade(void) const;
-		int getExecGrade(void) const;
-		void beSigned(Bureaucrat brc);
+		int	getGrade(void) const;
+		void incrementGrade(void);
+		void decrementGrade(void);
+		void signForm(AForm& Aform);
 };
 
-std::ostream& operator<<(std::ostream& os, const Form& form);
+std::ostream& operator<<(std::ostream& os, const Bureaucrat& brc);
+

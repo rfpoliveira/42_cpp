@@ -6,15 +6,28 @@
 /*   By: rpedrosa <rpedrosa@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/15 15:46:13 by rpedrosa          #+#    #+#             */
-/*   Updated: 2025/08/15 16:12:36 by rpedrosa         ###   ########.fr       */
+/*   Updated: 2025/08/19 17:00:18 by rpedrosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
 
-Animal::Animal(): type("Generic Animal")
+Animal::Animal() : type("Default")
 {
-	std::cout << "Animal contructor called" << std::endl;
+	std::cout << "Animal default constructor called" << std::endl;
+}
+
+Animal::Animal(const Animal &other)
+{
+	std::cout << "Animal Copy constructor called" << std::endl;
+	this->type = other.type;
+}
+Animal& Animal::operator=(const Animal &other)
+{
+	std::cout << "Animal Copy assignment operator called" << std::endl;
+	if (this != &other)
+		this->type = other.type;
+	return(*this);
 }
 
 Animal::~Animal()
@@ -32,15 +45,24 @@ std::string Animal::get_type(void) const
 	return(this->type);
 }
 
-WrongAnimal::WrongAnimal(): type("Wrong animal")
+WrongAnimal::WrongAnimal() : type("Default")
 {
-	std::cout << "WrongAnimal contructor called" << std::endl;
+	std::cout << "WrongAnimal default constructor called" << std::endl;
+}
+WrongAnimal::WrongAnimal(const WrongAnimal &other)
+{
+	std::cout << "WrongAnimal Copy constructor called" << std::endl;
+	this->type = other.type;
+}
+WrongAnimal& WrongAnimal::operator=(const WrongAnimal &other)
+{
+	std::cout << "WrongAnimal Copy assignment operator called" << std::endl;
+	if (this != &other)
+		this->type = other.type;
+	return(*this);
 }
 
-WrongAnimal::~WrongAnimal()
-{
-	std::cout << "WrongAnimal destructor called" << std::endl;
-}
+WrongAnimal::~WrongAnimal(){}
 
 void WrongAnimal::makeSound(void) const
 {

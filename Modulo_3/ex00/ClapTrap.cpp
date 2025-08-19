@@ -6,17 +6,44 @@
 /*   By: rpedrosa <rpedrosa@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/14 16:14:25 by rpedrosa          #+#    #+#             */
-/*   Updated: 2025/08/14 17:26:10 by rpedrosa         ###   ########.fr       */
+/*   Updated: 2025/08/19 16:30:08 by rpedrosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
+
+ClapTrap::ClapTrap(): _name("Default")
+{
+	std::cout << "default contructor called" << std::endl;
+
+}
 
 ClapTrap::ClapTrap(std::string name): 
 	_name(name), _hp(10), _ep(10), _ad(0)
 {
 	std::cout << "contructor called" << std::endl;
 }
+ClapTrap::ClapTrap(const ClapTrap &other)
+{
+	std::cout << "Copy constructor called" << std::endl;
+	this->_name = other._name;
+	this->_ad = other._ad;
+	this->_ep = other._ep;
+	this->_hp = other._hp;
+}
+
+ClapTrap& ClapTrap::operator=(const ClapTrap &other)
+{
+	std::cout << "Copy assignment operator called" << std::endl;
+	if (this != &other)
+	{
+		this->_name = other._name;
+		this->_ad = other._ad;
+		this->_ep = other._ep;
+		this->_hp = other._hp;
+	}
+	return(*this);
+}	
 
 ClapTrap::~ClapTrap()
 {
