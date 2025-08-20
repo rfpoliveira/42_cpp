@@ -6,11 +6,13 @@
 /*   By: rpedrosa <rpedrosa@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/18 17:08:25 by rpedrosa          #+#    #+#             */
-/*   Updated: 2025/08/19 14:46:29 by rpedrosa         ###   ########.fr       */
+/*   Updated: 2025/08/20 16:13:40 by rpedrosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+
+Bureaucrat::Bureaucrat(): name("Default"), grade(150){}
 
 Bureaucrat::Bureaucrat(const std::string name, int grade) : name(name)
 {
@@ -35,6 +37,17 @@ Bureaucrat::Bureaucrat(const std::string name, int grade) : name(name)
 		std::cout << "Please enter valid paramaters" << std::endl;
 		this->grade = -1;
 	}
+}
+Bureaucrat::Bureaucrat(const Bureaucrat &other): name(other.name), grade(other.grade){}
+
+Bureaucrat& Bureaucrat::operator=(const Bureaucrat &other)
+{
+	if (this != &other)
+	{
+		const_cast<std::string&>(name) = other.name;
+		this->grade = other.grade;
+	}
+	return(*this);
 }
 
 Bureaucrat::~Bureaucrat(){};

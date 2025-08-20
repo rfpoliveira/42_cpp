@@ -6,28 +6,32 @@
 /*   By: rpedrosa <rpedrosa@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/18 17:27:43 by rpedrosa          #+#    #+#             */
-/*   Updated: 2025/08/19 14:09:15 by rpedrosa         ###   ########.fr       */
+/*   Updated: 2025/08/20 16:09:49 by rpedrosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "RobotomyRequestForm.hpp"
 
 int main (void)
 {
-	Bureaucrat *a = new Bureaucrat("a", 1);
-	Bureaucrat *b = new Bureaucrat("b", 150);
+	Bureaucrat* a = new Bureaucrat("a", 1);
+	Bureaucrat* b  = new Bureaucrat("b", 150);
 
-	Form *c = new Form("c", 50, 50);
+	PresidentialPardonForm a1("Ze");
+	ShrubberyCreationForm b1("david");
+	RobotomyRequestForm c1("Renato");
 
-	std::cout << *c;
-	b->signForm(*c);
-	std::cout << *c;
+	a->executeForm(a1);
+	a->executeForm(b1);
+	a->executeForm(c1);
 
-	std::cout << *c;
-	a->signForm(*c);
-	std::cout << *c;
-	
+	b->executeForm(a1);
+	b->executeForm(b1);
+	b->executeForm(c1);
+
 	delete a;
 	delete b;
-	delete c;
 }

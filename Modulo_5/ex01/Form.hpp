@@ -6,7 +6,7 @@
 /*   By: rpedrosa <rpedrosa@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/18 19:43:44 by rpedrosa          #+#    #+#             */
-/*   Updated: 2025/08/19 14:22:52 by rpedrosa         ###   ########.fr       */
+/*   Updated: 2025/08/20 12:56:34 by rpedrosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,10 @@ class Form
 		const int _sign_grade;
 		const int _exec_grade;
 	public:
+		Form();
 		Form(const std::string name, const int sign_grade, const int exec_grade);
+		Form(const Form& other);
+		Form &operator=(const Form &other);
 		~Form();
 		class GradeTooLowExeption: public std::exception
 		{

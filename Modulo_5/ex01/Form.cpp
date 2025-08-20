@@ -6,11 +6,13 @@
 /*   By: rpedrosa <rpedrosa@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/18 19:51:39 by rpedrosa          #+#    #+#             */
-/*   Updated: 2025/08/19 14:27:40 by rpedrosa         ###   ########.fr       */
+/*   Updated: 2025/08/20 13:02:08 by rpedrosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+
+Form::Form(): _name("Default"), _exec_grade(150), _sign_grade(150), _sign(false){}
 
 Form::Form(const std::string name, const int sign_grade, const int exec_grade):
 	_name(name), _sign(false), _sign_grade(sign_grade), _exec_grade(exec_grade) 
@@ -32,6 +34,20 @@ Form::Form(const std::string name, const int sign_grade, const int exec_grade):
 		std::cout << e.error() << std::endl;
 		std::cout << "Please enter valid paramaters" << std::endl;
 	}
+}
+
+Form::Form(const Form &other): _name(other._name), _exec_grade(other._exec_grade), _sign_grade(other._sign_grade), _sign(other._sign){}
+
+Form& Form::operator=(const Form &other)
+{
+	if (this != &other)
+	{
+		const_cast<std::string&>(_name) = other._name;
+		const_cast<int&>(_sign_grade) = other._sign_grade;
+		const_cast<int&>(_exec_grade) = other._exec_grade;
+		this->_sign = other._sign;
+	}
+	return(*this);
 }
 
 Form::~Form(){};
