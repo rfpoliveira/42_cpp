@@ -1,42 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Intern.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpedrosa <rpedrosa@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/18 17:27:43 by rpedrosa          #+#    #+#             */
-/*   Updated: 2025/08/22 13:23:48 by rpedrosa         ###   ########.fr       */
+/*   Created: 2025/08/22 13:34:12 by rpedrosa          #+#    #+#             */
+/*   Updated: 2025/08/22 14:07:02 by rpedrosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureaucrat.hpp"
+#pragma once
+
+#include "AForm.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "PresidentialPardonForm.hpp"
 #include "RobotomyRequestForm.hpp"
 
-int main (void)
+class Intern
 {
-	Bureaucrat* a = new Bureaucrat("a", 1);
-	Bureaucrat* b  = new Bureaucrat("b", 150);
-
-	PresidentialPardonForm a1("Ze");
-	ShrubberyCreationForm b1("david");
-	RobotomyRequestForm c1("Renato");
-
-	a->executeForm(a1);
-
-	a->signForm(a1);
-	a->signForm(b1);
-	a->signForm(c1);
+	public:
+		Intern();
+		~Intern();
+		Intern& operator=(const Intern&);
 	
-	a->executeForm(b1);
-	a->executeForm(c1);
-	
-	b->executeForm(a1);
-	b->executeForm(b1);
-	b->executeForm(c1);
-
-	delete a;
-	delete b;
-}
+		AForm *makeForm(const std::string form_name, const std::string form_target);
+		typedef AForm *(* functions)(const std::string& target);
+};

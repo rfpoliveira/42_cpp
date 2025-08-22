@@ -6,7 +6,7 @@
 /*   By: rpedrosa <rpedrosa@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/18 17:27:43 by rpedrosa          #+#    #+#             */
-/*   Updated: 2025/08/22 13:23:48 by rpedrosa         ###   ########.fr       */
+/*   Updated: 2025/08/22 14:15:17 by rpedrosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,29 +14,34 @@
 #include "ShrubberyCreationForm.hpp"
 #include "PresidentialPardonForm.hpp"
 #include "RobotomyRequestForm.hpp"
+#include "Intern.hpp"
 
 int main (void)
 {
-	Bureaucrat* a = new Bureaucrat("a", 1);
-	Bureaucrat* b  = new Bureaucrat("b", 150);
+	Intern intern;
+	Bureaucrat b("b", 1);
 
-	PresidentialPardonForm a1("Ze");
-	ShrubberyCreationForm b1("david");
-	RobotomyRequestForm c1("Renato");
+	AForm *a = intern.makeForm("shrubbery request", "bender");
+	AForm *c = intern.makeForm("presidential request", "bender");
+	AForm *d = intern.makeForm("robotomy request", "bender");
+	AForm *e = intern.makeForm("random request", "bender");
 
-	a->executeForm(a1);
+	b.signForm(*a);
+	b.executeForm(*a);
 
-	a->signForm(a1);
-	a->signForm(b1);
-	a->signForm(c1);
-	
-	a->executeForm(b1);
-	a->executeForm(c1);
-	
-	b->executeForm(a1);
-	b->executeForm(b1);
-	b->executeForm(c1);
+	b.signForm(*c);
+	b.executeForm(*c);
 
-	delete a;
-	delete b;
+
+	b.signForm(*d);
+	b.executeForm(*d);
+
+	if (a)
+		delete a;
+	if (c)
+		delete c;
+	if (d)
+		delete d;
+	if (e)
+		delete e;
 }
