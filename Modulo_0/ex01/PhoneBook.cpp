@@ -6,7 +6,7 @@
 /*   By: rpedrosa <rpedrosa@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 18:15:11 by rpedrosa          #+#    #+#             */
-/*   Updated: 2025/08/19 15:39:17 by rpedrosa         ###   ########.fr       */
+/*   Updated: 2025/09/24 11:28:00 by rpedrosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,13 +49,11 @@ void	PhoneBook::add_contact(void)
 	this->contacts[this->current_contact].setter(5, get_input("Darkest Secret: "));
 
 	if (this->current_contact < 7)
-	{
-		if (this->list_len < 8)
-			this->list_len++;
 		this->current_contact++;
-	}
 	else
 		this->current_contact = 0;
+	if (this->list_len < 8)
+		this->list_len++;
 }
 
 void	put_strings(Contact contact, std::string index)
