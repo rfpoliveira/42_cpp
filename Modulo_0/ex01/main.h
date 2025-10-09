@@ -6,7 +6,7 @@
 /*   By: rpedrosa <rpedrosa@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 17:46:00 by rpedrosa          #+#    #+#             */
-/*   Updated: 2025/08/05 11:38:13 by rpedrosa         ###   ########.fr       */
+/*   Updated: 2025/10/01 15:09:56 by rpedrosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,7 @@
 #include <sstream>
 #include <iomanip>
 #include <limits>
-#include <stdlib.h>
-#include <stdio.h>
-#include <unistd.h>
+#include <cstdlib>
 
 #include "Contact.hpp"
 #include "PhoneBook.hpp"

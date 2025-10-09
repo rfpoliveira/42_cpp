@@ -6,7 +6,7 @@
 #    By: rpedrosa <rpedrosa@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/09 13:58:20 by rpedrosa          #+#    #+#              #
-#    Updated: 2025/08/04 17:50:49 by rpedrosa         ###   ########.fr        #
+#    Updated: 2025/10/09 17:05:06 by rpedrosa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,7 @@ clean:
 
 fclean: clean
 	@$(RM) $(NAME)
-	@echo "$(BCYA)[fclean] phonebook removed$(D)"
+	@echo "$(BCYA)[fclean] brainz removed$(D)"
 
 re: fclean all
 

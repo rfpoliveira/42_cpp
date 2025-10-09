@@ -6,7 +6,7 @@
 /*   By: rpedrosa <rpedrosa@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/23 17:14:06 by rpedrosa          #+#    #+#             */
-/*   Updated: 2025/08/04 16:24:30 by rpedrosa         ###   ########.fr       */
+/*   Updated: 2025/10/09 17:15:51 by rpedrosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ class Zombie
 		
 	public:
 		Zombie();
+		Zombie(std::string name);
 		~Zombie();
 		void	announce(void);
-		void	name_setter(std::string name);
 };
 
 Zombie* newZombie(std::string name);

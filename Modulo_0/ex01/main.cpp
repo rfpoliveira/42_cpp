@@ -6,7 +6,7 @@
 /*   By: rpedrosa <rpedrosa@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/12 11:10:34 by rpedrosa          #+#    #+#             */
-/*   Updated: 2025/08/05 11:55:30 by rpedrosa         ###   ########.fr       */
+/*   Updated: 2025/10/01 15:24:25 by rpedrosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,12 @@ int	execution(std::string input, PhoneBook *phonebook)
 	else if (input.compare("SEARCH") == 0)
 		phonebook->display_list();
 	else
+	{
+		std::cin.clear();
+		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+		input = "0";
 		std::cout << "Please type a valid command!" << std::endl;
+	}
 	std::cout << "What you want to do? Please type: [ADD], [SEARCH] or [EXIT]" << std::endl;
 	return (0);
 }
@@ -35,11 +40,11 @@ int main(void)
 	std::string input = "0";
 	
 	std::cout << "What you want to do? Please type: [ADD], [SEARCH] or [EXIT]" << std::endl;
-	while (isatty(0) != 1)
+	while (42)
 	{
 		while (std::getline(std::cin, input))
 		{
-			if (std::cin.fail())
+			if (std::cin.fail() || std::cin.eof())
 			{
 				std::cin.clear();
 				std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');

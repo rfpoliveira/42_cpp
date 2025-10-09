@@ -6,7 +6,7 @@
 /*   By: rpedrosa <rpedrosa@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 18:15:11 by rpedrosa          #+#    #+#             */
-/*   Updated: 2025/09/24 11:28:00 by rpedrosa         ###   ########.fr       */
+/*   Updated: 2025/10/01 15:27:55 by rpedrosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,15 @@ std::string	get_input(std::string msg)
 	{
 		std::cout << msg << std::flush;
 		std::getline(std::cin, buffer);
-		if (std::cin.good() && !buffer.empty())
+		if (std::cin.good() && !std::cin.eof() && !buffer.empty())
 			return buffer;
 		else
 		{
+			if (std::cin.eof())
+				exit(1);
 			std::cin.clear();
+			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+			buffer = "";
 			std::cout << "Please make a valid input" << std::endl;
 		}
 	}
