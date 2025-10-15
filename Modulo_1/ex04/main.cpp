@@ -6,7 +6,7 @@
 /*   By: rpedrosa <rpedrosa@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 16:32:54 by rpedrosa          #+#    #+#             */
-/*   Updated: 2025/08/12 12:56:41 by rpedrosa         ###   ########.fr       */
+/*   Updated: 2025/10/15 17:18:45 by rpedrosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ int main(int argc, char **argv)
 	std::string temp;
 	while(ifs.get(ch))
 	{
+		if (ifs.eof())
+			break ;
 		if (ch == argv[2][0])
 		{
 			ifs.get(s, len);
