@@ -1,21 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   data.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpedrosa <rpedrosa@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/27 14:37:29 by rpedrosa          #+#    #+#             */
-/*   Updated: 2025/10/28 13:09:46 by rpedrosa         ###   ########.fr       */
+/*   Created: 2025/10/28 14:22:44 by rpedrosa          #+#    #+#             */
+/*   Updated: 2025/10/28 14:33:08 by rpedrosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "convert.hpp"
+#include "data.hpp"
 
-int main (int argc, char **argv)
+Data::Data(): number(0), name("random name") {};
+
+Data::Data(const Data& other)
 {
-    if (argc != 2)
-        std::cout << "Usage: ./convert <int, char, float or double literal>" << std::endl;
-    else
-        ScalarConverter::convert(argv[1]);
-}
+    this->name = other.name;
+    this->number = other.number;
+};
+
+Data::~Data(){};
+
+Data& Data::operator=(const Data &other)
+{
+    if (this != &other)
+    {
+        this->name = other.name;
+        this->number = other.number;
+    }
+    return (*this);
+};

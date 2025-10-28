@@ -1,21 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   data.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpedrosa <rpedrosa@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/27 14:37:29 by rpedrosa          #+#    #+#             */
-/*   Updated: 2025/10/28 13:09:46 by rpedrosa         ###   ########.fr       */
+/*   Created: 2025/10/28 14:20:56 by rpedrosa          #+#    #+#             */
+/*   Updated: 2025/10/28 14:46:22 by rpedrosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "convert.hpp"
+#ifndef DATA_HPP
+# define DATA_HPP
 
-int main (int argc, char **argv)
+#include <iostream>
+
+class Data
 {
-    if (argc != 2)
-        std::cout << "Usage: ./convert <int, char, float or double literal>" << std::endl;
-    else
-        ScalarConverter::convert(argv[1]);
-}
+    public:
+        Data();
+        Data(const Data &other);
+        Data &operator=(const Data &other); 
+        ~Data();
+
+        int number;
+        std::string name;
+};
+
+#endif

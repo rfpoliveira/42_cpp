@@ -5,17 +5,15 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpedrosa <rpedrosa@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/27 14:37:29 by rpedrosa          #+#    #+#             */
-/*   Updated: 2025/10/28 13:09:46 by rpedrosa         ###   ########.fr       */
+/*   Created: 2025/10/28 15:14:42 by rpedrosa          #+#    #+#             */
+/*   Updated: 2025/10/28 15:15:59 by rpedrosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "convert.hpp"
+#include "Base.hpp"
 
-int main (int argc, char **argv)
+int main (void)
 {
-    if (argc != 2)
-        std::cout << "Usage: ./convert <int, char, float or double literal>" << std::endl;
-    else
-        ScalarConverter::convert(argv[1]);
+    Base *ptr = generate();
+    identify(ptr);
 }
