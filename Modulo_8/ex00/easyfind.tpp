@@ -1,37 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   easyfind.tpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpedrosa <rpedrosa@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/05 15:10:42 by rpedrosa          #+#    #+#             */
-/*   Updated: 2025/10/15 17:04:49 by rpedrosa         ###   ########.fr       */
+/*   Created: 2025/10/30 12:32:16 by rpedrosa          #+#    #+#             */
+/*   Updated: 2025/10/30 15:05:29 by rpedrosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Weapon.h"
-#include "HumanA.hpp"
-#include "HumanB.hpp"
+#include "easyfind.hpp"
 
-
-int main (void)
+template<typename T>
+typename T::const_iterator easyfind (T& container, int needle)
 {
-	{
-		Weapon club = Weapon("crude spiked club");
-		HumanA bob("Bob", club);
-		bob.attack();
-		club.setType("some other type of club");
-		bob.attack();
-	}
-	{
-		Weapon club = Weapon("crude spiked club");
-		HumanB jim("Jim");
-		jim.setWeapon(club);
-		jim.attack();
-		club.setType("some other type of club");
-		jim.attack();
-	}
+	typename T::const_iterator i;
 
-	return 0;
+	for (i = container.begin(); i != container.end(); ++i)
+	{
+		if (*i == needle)
+			return (i);
+	}
+	std::cout << *container.end() << std::endl;
+	return (container.end());
 }

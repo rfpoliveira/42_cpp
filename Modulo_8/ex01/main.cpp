@@ -5,33 +5,19 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpedrosa <rpedrosa@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/05 15:10:42 by rpedrosa          #+#    #+#             */
-/*   Updated: 2025/10/15 17:04:49 by rpedrosa         ###   ########.fr       */
+/*   Created: 2025/10/30 16:08:24 by rpedrosa          #+#    #+#             */
+/*   Updated: 2025/10/30 16:10:35 by rpedrosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Weapon.h"
-#include "HumanA.hpp"
-#include "HumanB.hpp"
+#include "Span.hpp"
 
-
-int main (void)
+int main(void)
 {
-	{
-		Weapon club = Weapon("crude spiked club");
-		HumanA bob("Bob", club);
-		bob.attack();
-		club.setType("some other type of club");
-		bob.attack();
-	}
-	{
-		Weapon club = Weapon("crude spiked club");
-		HumanB jim("Jim");
-		jim.setWeapon(club);
-		jim.attack();
-		club.setType("some other type of club");
-		jim.attack();
-	}
+    Span test(10);
 
-	return 0;
+    for (int i = 0; i < 10; i++)
+        test.addNumber(5);
+
+    test.print_span();
 }
