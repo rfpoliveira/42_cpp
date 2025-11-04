@@ -6,7 +6,7 @@
 /*   By: rpedrosa <rpedrosa@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/15 15:41:12 by rpedrosa          #+#    #+#             */
-/*   Updated: 2025/08/19 17:11:04 by rpedrosa         ###   ########.fr       */
+/*   Updated: 2025/11/04 14:09:00 by rpedrosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ class Animal
 		Animal();
 		Animal(const Animal& other);
 		Animal &operator=(const Animal &other);
-		virtual ~Animal() = 0;
-		virtual void makeSound(void) const;
+		virtual ~Animal();
+		virtual void makeSound(void) const = 0;
 		virtual std::string get_type(void) const;
 		virtual void getIdea(int numb) const = 0;
 };
