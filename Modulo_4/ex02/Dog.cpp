@@ -6,7 +6,7 @@
 /*   By: rpedrosa <rpedrosa@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/15 15:48:47 by rpedrosa          #+#    #+#             */
-/*   Updated: 2025/11/04 12:46:49 by rpedrosa         ###   ########.fr       */
+/*   Updated: 2025/11/12 11:36:03 by rpedrosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,14 @@
 
 Dog::Dog()
 {
+	std::cout << "Dog constructor called" << std::endl;
 	this->type = "Dog";
 	this->brain = new Brain;
 }
 
 Dog::Dog(const Dog &other)
 {
+	std::cout << "Dog copy constructor called" << std::endl;
 	this->type = other.type;
 	this->brain = new Brain;
 	this->brain = other.brain;
@@ -27,6 +29,7 @@ Dog::Dog(const Dog &other)
 
 Dog& Dog::operator=(const Dog &other)
 {
+	std::cout << "Dog copy assigment overload called" << std::endl;
 	if (this != &other)
 		this->type = other.type;
 	return(*this);
@@ -34,7 +37,7 @@ Dog& Dog::operator=(const Dog &other)
 
 Dog::~Dog()
 {
-	std::cout << "dog destructor called" << std::endl;
+	std::cout << "Dog destructor called" << std::endl;
 	delete this->brain;
 }
 

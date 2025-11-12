@@ -6,7 +6,7 @@
 /*   By: rpedrosa <rpedrosa@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/15 16:32:13 by rpedrosa          #+#    #+#             */
-/*   Updated: 2025/11/04 12:27:33 by rpedrosa         ###   ########.fr       */
+/*   Updated: 2025/11/12 11:33:50 by rpedrosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 Brain::Brain()
 {
+	std::cout << "Brain constructor called" << std::endl;
 	this->ideas[0] = "I want to eat";
 	this->ideas[1] = "I will run";
 	this->ideas[2] = "I will sleep";
@@ -28,12 +29,14 @@ Brain::Brain()
 
 Brain::Brain(const Brain &other)
 {
+	std::cout << "Brain copy constructor called" << std::endl;
 	for(int i = 0; i < 100; i++)
 		this->ideas[i] = other.ideas[i];
 }
 
 Brain& Brain::operator=(const Brain &other)
 {
+	std::cout << "Brain copy assigment overload called" << std::endl;
 	if (this != &other)
 	{
 		for(int i = 0; i < 100; i++)
@@ -43,4 +46,7 @@ Brain& Brain::operator=(const Brain &other)
 	return(*this);
 }
 
-Brain::~Brain(){}
+Brain::~Brain()
+{
+	std::cout << "Brain destructor called" << std::endl;
+}

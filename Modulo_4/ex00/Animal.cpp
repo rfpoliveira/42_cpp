@@ -6,7 +6,7 @@
 /*   By: rpedrosa <rpedrosa@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/15 15:46:13 by rpedrosa          #+#    #+#             */
-/*   Updated: 2025/08/19 17:00:18 by rpedrosa         ###   ########.fr       */
+/*   Updated: 2025/11/12 11:30:01 by rpedrosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,10 @@ WrongAnimal& WrongAnimal::operator=(const WrongAnimal &other)
 	return(*this);
 }
 
-WrongAnimal::~WrongAnimal(){}
+WrongAnimal::~WrongAnimal()
+{
+	std::cout << "WrongAnimal destructor called" << std::endl;
+}
 
 void WrongAnimal::makeSound(void) const
 {
