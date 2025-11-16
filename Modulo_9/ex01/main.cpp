@@ -5,28 +5,28 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpedrosa <rpedrosa@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/30 16:08:24 by rpedrosa          #+#    #+#             */
-/*   Updated: 2025/10/31 12:49:51 by rpedrosa         ###   ########.fr       */
+/*   Created: 2025/11/13 11:51:47 by rpedrosa          #+#    #+#             */
+/*   Updated: 2025/11/13 13:24:16 by rpedrosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Span.hpp"
+#include "RPN.hpp"
 
-int main(void)
+int main (int argc, char **argv)
 {
-    int lenght = 3;
-    int arr[] = {10, 22, 21};
+    if (argc != 2)
+    {
+        std::cerr << "Error: Usage: ./RPN <expression>" << std::endl;
+        return (-1);
+    }
     
-    Span test(lenght);
-    test.add_mulitple(arr, lenght);
+    std::stack<int> stack;
 
-    std::cout << "Test 1: print the list" << std::endl;
-    test.print_span();
-    std::cout << std::endl;
-
-    std::cout << "Test 2: shorstest span" << std::endl;
-    std::cout << test.shortestSpan() <<std::endl << std::endl;
-
-    std::cout << "Test 3: longest span" << std::endl;
-    std::cout << test.longestSpan() <<std::endl << std::endl;
+    if(!create_stack(argv[1], stack) || stack.size() != 1)
+    {
+        std::cerr << "Error" << std::endl;
+        return (-2);
+    }
+    std::cout << stack.top() << std::endl;   
+    return (0);
 }

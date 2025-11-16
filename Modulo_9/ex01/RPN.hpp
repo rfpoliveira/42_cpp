@@ -1,23 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   RPN.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpedrosa <rpedrosa@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/28 15:14:42 by rpedrosa          #+#    #+#             */
-/*   Updated: 2025/10/29 11:07:53 by rpedrosa         ###   ########.fr       */
+/*   Created: 2025/11/13 11:55:35 by rpedrosa          #+#    #+#             */
+/*   Updated: 2025/11/13 13:23:00 by rpedrosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Base.hpp"
+#include <iostream>
+#include <stack>
 
-int main (void)
-{
-    std::cout << "Pointer: " << std::endl;
-    Base *ptr = generate();
-    identify(ptr);
-
-    std::cout << "Reference: " << std::endl;
-    identify(*ptr);
-}
+bool create_stack(std::string exp, std::stack<int> &stack);

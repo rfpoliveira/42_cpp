@@ -4,17 +4,9 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Span::Span()
-{
-	this->max_size = 0;
-	this->numbers;
-} 
+Span::Span(): numbers(), max_size(0){} 
 
-Span::Span(unsigned int N)
-{
-	this->max_size = N;
-	this->numbers;
-}
+Span::Span(unsigned int N): numbers(), max_size(N) {}
 
 Span::Span(const Span& other)
 {
@@ -64,9 +56,45 @@ void Span::addNumber(int n)
 		numbers.push_back(n);
 }
 
+int Span::longestSpan(void) const
+{
+	if (numbers.size() < 2)
+		return (0);
+	std::list<int> temp = numbers;
+	temp.sort();
+	return(temp.back() - temp.front());
+}
+
+int Span::shortestSpan(void) const
+{
+	if (numbers.size() < 2)
+		return (0);
+	std::list<int> temp = numbers;
+	temp.sort();
+
+	int shortest_span = std::numeric_limits<int>::max();
+	std::list<int>::iterator first = temp.begin();
+	std::list<int>::iterator second = temp.begin();
+	second++;
+	for(; second != temp.end(); second++)
+	{
+		if ((*second - *first) < shortest_span)
+			shortest_span = *second - *first;
+		first++;
+	}
+	return (shortest_span);
+}
+
+void Span::add_mulitple(int n[], int lenght)
+{
+	for(int i = 0; i < lenght; i++)
+		addNumber(n[i]);
+}
+
 void Span::print_span(void)
 {
 	std::list<int>::iterator it;
 
-	for(numbers.begin(); )
+	for(it = numbers.begin(); it != numbers.end(); it++)
+		std::cout << *it << std::endl;
 }

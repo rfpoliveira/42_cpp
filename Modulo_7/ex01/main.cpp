@@ -5,28 +5,29 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpedrosa <rpedrosa@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/30 16:08:24 by rpedrosa          #+#    #+#             */
-/*   Updated: 2025/10/31 12:49:51 by rpedrosa         ###   ########.fr       */
+/*   Created: 2025/10/29 11:45:54 by rpedrosa          #+#    #+#             */
+/*   Updated: 2025/10/29 12:02:44 by rpedrosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Span.hpp"
+#include "iter.hpp"
+
+template <typename T> void print_int(const T& a)
+{
+    std::cout << a << std::endl;
+}
+
+template <typename T> void increment(T& a)
+{
+    ++a;
+}
 
 int main(void)
 {
     int lenght = 3;
-    int arr[] = {10, 22, 21};
+    int arr[] = {1, 2 , 3};
     
-    Span test(lenght);
-    test.add_mulitple(arr, lenght);
+    iter(arr, lenght, increment<int>);
 
-    std::cout << "Test 1: print the list" << std::endl;
-    test.print_span();
-    std::cout << std::endl;
-
-    std::cout << "Test 2: shorstest span" << std::endl;
-    std::cout << test.shortestSpan() <<std::endl << std::endl;
-
-    std::cout << "Test 3: longest span" << std::endl;
-    std::cout << test.longestSpan() <<std::endl << std::endl;
+    iter(arr, 3, print_int<int>);
 }

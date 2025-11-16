@@ -16,7 +16,16 @@ class Span
 		~Span();
 		Span& operator=(Span const& other);
 
+
+		/*member functions: */
+
+		int	shortestSpan(void) const;
+		int longestSpan(void) const;
 		void addNumber(int n);
+		void add_mulitple(int n[], int lenght);
+
+
+		/*exepctions :*/
 
 		class maxsizeExeption: public std::exception
 		{
@@ -27,10 +36,14 @@ class Span
 				}
 		};
 
+
+
+		/*utils :*/
 		void print_span(void);
+
 	private:
-		unsigned int max_size;
 		std::list<int> numbers;
+		unsigned int max_size;
 };
 
 #endif

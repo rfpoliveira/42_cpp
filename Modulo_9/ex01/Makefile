@@ -6,7 +6,7 @@
 #    By: rpedrosa <rpedrosa@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/09 13:58:20 by rpedrosa          #+#    #+#              #
-#    Updated: 2025/10/29 11:10:12 by rpedrosa         ###   ########.fr        #
+#    Updated: 2025/11/13 12:47:04 by rpedrosa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,14 +14,14 @@ CPP = c++
 
 CPPFLAGS = -Wall -Werror -Wextra -g -std=c++98
 
-SRCS = main.cpp data.cpp serial.cpp
+SRCS = main.cpp RPN.cpp
 OBJS = $(SRCS:.cpp=.o)
-NAME = serial
+NAME = RPN
 
 all: $(NAME)
 $(NAME): $(OBJS)
 	@$(CPP) $(CPPFLAGS) $(OBJS) -o $(NAME)
-	@echo "$(GRN)[serial compiled]$(D)"
+	@echo "$(GRN)[RPN compiled]$(D)"
 
 #==============================================================================#
 #                                    cleaning rules                            #
@@ -32,7 +32,7 @@ clean:
 
 fclean: clean
 	@$(RM) $(NAME)
-	@echo "$(BCYA)[fclean] serial removed$(D)"
+	@echo "$(BCYA)[fclean] RPN removed$(D)"
 
 re: fclean all
 

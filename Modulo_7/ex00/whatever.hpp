@@ -1,53 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Base.hpp                                           :+:      :+:    :+:   */
+/*   whatever.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpedrosa <rpedrosa@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/28 14:54:59 by rpedrosa          #+#    #+#             */
-/*   Updated: 2025/10/29 11:05:29 by rpedrosa         ###   ########.fr       */
+/*   Created: 2025/10/29 11:18:08 by rpedrosa          #+#    #+#             */
+/*   Updated: 2025/10/29 11:28:52 by rpedrosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BASE_HPP
-# define BASE_HPP
+#ifndef WHATEVER_HPP
+# define WHATEVER_HPP
 
-#include "iostream"
-#include <typeinfo>
-#include <cstdlib>
+#include <iostream>
 
-class Base
+template <typename T> void swap(T& a, T& b)
 {
-    public:
-        virtual ~Base();
-        static int type;
+    T tmp = a;
+    a = b;
+    b = tmp;
 };
 
-
-class A: public Base
+template <typename T> T max(T a, T b)
 {
-    public:
-        A();
-        ~A();
+    if (b > a || a == b)
+        return (b);
+    return (a);    
 };
 
-class B: public Base
+template <typename T> T min(T a, T b)
 {
-    public:
-        B();
-        ~B();  
+    if (b < a || a == b)
+        return (b);
+    return (a);
 };
-
-class C: public Base
-{
-    public:
-        C();
-        ~C();
-};
-
-Base* generate(void);
-void identify(Base* p);
-void identify(Base &p);
 
 #endif
