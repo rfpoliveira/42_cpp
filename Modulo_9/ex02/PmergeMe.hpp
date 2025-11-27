@@ -6,7 +6,7 @@
 /*   By: rpedrosa <rpedrosa@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/13 14:39:21 by rpedrosa          #+#    #+#             */
-/*   Updated: 2025/11/15 12:34:56 by rpedrosa         ###   ########.fr       */
+/*   Updated: 2025/11/27 17:47:01 by rpedrosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,10 @@
 
 #include <iostream>
 #include <deque>
-#include <vector>
 #include <cstdlib>
 #include <algorithm>
+#include <map>
+#include <vector>
 
 template<typename T>
 class PmergeMe
@@ -31,4 +32,5 @@ class PmergeMe
         void merge_insert_sort();
         T sequence;
         T pend;
+        std::map<int , int> og;
 };
