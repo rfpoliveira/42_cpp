@@ -3,42 +3,43 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rpedrosa <rpedrosa@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: rpedrosa <rpedrosa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/15 15:49:57 by rpedrosa          #+#    #+#             */
-/*   Updated: 2025/11/12 11:35:24 by rpedrosa         ###   ########.fr       */
+/*   Updated: 2025/12/02 16:52:17 by rpedrosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "Cat.hpp"
 
 Cat::Cat()
 {
-	std::cout << "Cat constructor called" << std::endl;
+	std::cout << "Cat contructor called" << std::endl;
 	this->type = "Cat";
-	this->brain = new Brain;
+	brain = new Brain;
 }
 
-Cat::Cat(const Cat &other)
+Cat::Cat(const Cat &other) : AAnimal()
 {
-	std::cout << "Cat copy constructor called" << std::endl;
+	std::cout << "Cat Copy constructor called" << std::endl;
 	this->type = other.type;
-	this->brain = new Brain;
-	this->brain = other.brain;
+	this->brain = new Brain(*(other.brain));
 }
-
 Cat& Cat::operator=(const Cat &other)
 {
-	std::cout << "Cat copy assigment overload called" << std::endl;
+	std::cout << "Cat Copy assignment operator called" << std::endl;
 	if (this != &other)
+	{
 		this->type = other.type;
+		this->brain = new Brain(*(other.brain));
+	}
 	return(*this);
 }
 
 Cat::~Cat()
 {
+	delete brain;
 	std::cout << "Cat destructor called" << std::endl;
-	delete this->brain;
 }
 
 void Cat::makeSound(void) const
@@ -51,37 +52,16 @@ std::string Cat::get_type(void) const
 	return(this->type);
 }
 
-void Cat::getIdea(int numb) const
+std::string Cat::getIdea(int index) const
 {
-	std::cout << this->brain->ideas[numb] << std::endl;
+	return(this->brain->ideas[index]);
 }
 
-WrongCat::WrongCat()
+void Cat::alterIdea(std::string newIdea, int index)
 {
-	std::cout << "WrongCat constructor called" << std::endl;
-	this->type = "WrongCat";
-}
-
-WrongCat::WrongCat(const WrongCat &other)
-{
-	std::cout << "WrongCat copy constructor called" << std::endl;
-	this->type = other.type;
-}
-
-WrongCat& WrongCat::operator=(const WrongCat &other)
-{
-	std::cout << "WrongCat copy assigment overload called" << std::endl;
-	if (this != &other)
-		this->type = other.type;
-	return(*this);
-}
-
-WrongCat::~WrongCat()
-{
-	std::cout << "WrongCat destructor called" << std::endl;
-}
-
-std::string WrongCat::get_type(void) const
-{
-	return(this->type);
+	if (index < 0 || index >= 100)
+	{
+		std::cerr << "Error: invalid index (0 - 99)" << '\n';
+	}
+	this->brain->ideas[index] = newIdea;
 }

@@ -6,11 +6,15 @@
 /*   By: rpedrosa <rpedrosa@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/15 15:50:34 by rpedrosa          #+#    #+#             */
-/*   Updated: 2025/08/19 16:52:22 by rpedrosa         ###   ########.fr       */
+/*   Updated: 2025/12/02 16:38:17 by rpedrosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
+#include "WrongAnimal.hpp"
+#include "WrongCat.hpp"
+#include "Cat.hpp"
+#include "Dog.hpp"
 
 int main (void)
 {
@@ -40,6 +44,11 @@ int main (void)
 	generic.get_type();
 	cat.get_type();
 	cat.get_type();
+	
+
+	Dog dog2 = dog;
+	dog2.makeSound();
+	std::cout << dog2.get_type() << "\n";
 	
 	delete x;
 	delete z;

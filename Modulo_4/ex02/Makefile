@@ -14,14 +14,14 @@ CPP = c++
 
 CPPFLAGS = -Wall -Werror -Wextra -g -std=c++98
 
-SRCS = main.cpp Animal.cpp Dog.cpp Cat.cpp Brain.cpp
+SRCS = main.cpp AAnimal.cpp Dog.cpp Cat.cpp Brain.cpp
 OBJS = $(SRCS:.cpp=.o)
-NAME = animals
+NAME = AAnimals
 
 all: $(NAME)
 $(NAME): $(OBJS)
 	@$(CPP) $(CPPFLAGS) $(OBJS) -o $(NAME)
-	@echo "$(GRN)[animals compiled]$(D)"
+	@echo "$(GRN)[AAnimals compiled]$(D)"
 
 #==============================================================================#
 #                                    cleaning rules                            #
@@ -32,7 +32,7 @@ clean:
 
 fclean: clean
 	@$(RM) $(NAME)
-	@echo "$(BCYA)[fclean] animals removed$(D)"
+	@echo "$(BCYA)[fclean] AAnimals removed$(D)"
 
 re: fclean all
 

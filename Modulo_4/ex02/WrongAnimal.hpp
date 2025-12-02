@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   WrongAAnimal.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpedrosa <rpedrosa@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/15 15:41:12 by rpedrosa          #+#    #+#             */
-/*   Updated: 2025/12/02 16:40:56 by rpedrosa         ###   ########.fr       */
+/*   Created: 2025/12/02 16:18:24 by rpedrosa          #+#    #+#             */
+/*   Updated: 2025/12/02 16:25:34 by rpedrosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-#include <iostream>
+#include "AAnimal.hpp"
+#include "WrongAAnimal.hpp"
 
-class Animal
+class WrongAAnimal
 {
 	protected:
 		std::string type;
 	
 	public:
-		Animal();
-		Animal(const Animal& other);
-		Animal &operator=(const Animal &other);
-		virtual ~Animal();
-		virtual void makeSound(void) const;
-		virtual std::string get_type(void) const;
-		virtual std::string getIdea(int index) const = 0;
+		WrongAAnimal();
+		WrongAAnimal(const WrongAAnimal& other);
+		WrongAAnimal &operator=(const WrongAAnimal &other);
+		~WrongAAnimal();
+		void makeSound(void) const;
+		std::string get_type(void) const;
 };

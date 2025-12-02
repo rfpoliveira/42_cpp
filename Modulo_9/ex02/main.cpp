@@ -6,7 +6,7 @@
 /*   By: rpedrosa <rpedrosa@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/13 14:38:09 by rpedrosa          #+#    #+#             */
-/*   Updated: 2025/11/13 17:37:01 by rpedrosa         ###   ########.fr       */
+/*   Updated: 2025/12/02 15:30:30 by rpedrosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ int main(int argc, char **argv)
         return (-1);
     }
     
-    PmergeMe<std::deque<int> > list(argv, argc);
+    PmergeMe<std::vector<int> > list(argv, argc);
 
-    std::deque<int>::iterator it;
+    std::vector<int>::iterator it;
     for(it = list.sequence.begin(); it != list.sequence.end(); it++)
         std::cout << *it << std::endl;
 }

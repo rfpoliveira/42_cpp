@@ -1,55 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*   WrongAnimal.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpedrosa <rpedrosa@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/15 15:46:13 by rpedrosa          #+#    #+#             */
-/*   Updated: 2025/11/12 11:32:50 by rpedrosa         ###   ########.fr       */
+/*   Created: 2025/12/02 16:17:56 by rpedrosa          #+#    #+#             */
+/*   Updated: 2025/12/02 16:18:40 by rpedrosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
-
-Animal::Animal(): type("Default")
-{
-	std::cout << "Animal default constructor called" << std::endl;
-}
-
-Animal::Animal(const Animal &other)
-{
-	this->type = other.type;
-}
-
-Animal& Animal::operator=(const Animal &other)
-{
-	if (this != &other)
-		this->type = other.type;
-	return(*this);
-}
-
-Animal::~Animal()
-{
-	std::cout << "Animal destructor called" << std::endl;
-}
-
-std::string Animal::get_type(void) const
-{
-	return(this->type);
-}
+#include "WrongAnimal.hpp"
 
 WrongAnimal::WrongAnimal() : type("Default")
 {
 	std::cout << "WrongAnimal default constructor called" << std::endl;
 }
-
 WrongAnimal::WrongAnimal(const WrongAnimal &other)
 {
 	std::cout << "WrongAnimal Copy constructor called" << std::endl;
 	this->type = other.type;
 }
-
 WrongAnimal& WrongAnimal::operator=(const WrongAnimal &other)
 {
 	std::cout << "WrongAnimal Copy assignment operator called" << std::endl;

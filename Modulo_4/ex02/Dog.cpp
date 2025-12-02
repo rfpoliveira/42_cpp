@@ -6,52 +6,63 @@
 /*   By: rpedrosa <rpedrosa@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/15 15:48:47 by rpedrosa          #+#    #+#             */
-/*   Updated: 2025/11/12 11:36:03 by rpedrosa         ###   ########.fr       */
+/*   Updated: 2025/12/02 16:50:42 by rpedrosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "Dog.hpp"
+#include "Brain.hpp"
 
 Dog::Dog()
 {
-	std::cout << "Dog constructor called" << std::endl;
+	std::cout << "Dog contructor called" << std::endl;
 	this->type = "Dog";
 	this->brain = new Brain;
 }
 
-Dog::Dog(const Dog &other)
+Dog::Dog(const Dog &other) : AAnimal()
 {
-	std::cout << "Dog copy constructor called" << std::endl;
+	std::cout << "Dog Copy constructor called" << std::endl;
 	this->type = other.type;
-	this->brain = new Brain;
-	this->brain = other.brain;
+	this->brain = new Brain(*(other.brain));
 }
 
 Dog& Dog::operator=(const Dog &other)
 {
-	std::cout << "Dog copy assigment overload called" << std::endl;
+	std::cout << "Dog Copy assignment operator called" << std::endl;
 	if (this != &other)
+	{
 		this->type = other.type;
+		this->brain = new Brain(*(other.brain));
+	}
 	return(*this);
 }
 
 Dog::~Dog()
 {
+	delete brain;
 	std::cout << "Dog destructor called" << std::endl;
-	delete this->brain;
 }
 
 void Dog::makeSound(void) const
 {
 	std::cout << "Woof, Woof" << std::endl;
 }
-
 std::string Dog::get_type(void) const
 {
 	return(this->type);
 }
 
-void Dog::getIdea(int numb) const
+std::string Dog::getIdea(int index) const
 {
-	std::cout << this->brain->ideas[numb] << std::endl;
+	return(this->brain->ideas[index]);
+}
+
+void Dog::alterIdea(std::string newIdea, int index)
+{
+	if (index < 0 || index >= 100)
+	{
+		std::cerr << "Error: invalid index (0 - 99)" << '\n';
+	}
+	this->brain->ideas[index] = newIdea;
 }

@@ -6,23 +6,28 @@
 /*   By: rpedrosa <rpedrosa@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/13 14:39:18 by rpedrosa          #+#    #+#             */
-/*   Updated: 2025/11/27 18:19:52 by rpedrosa         ###   ########.fr       */
+/*   Updated: 2025/12/02 15:29:57 by rpedrosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
 
 template<typename T>
-void pair_sort(T &sequence)
+void pair_sort(T &sequence, T& index)
 {   
     typename T::iterator back = sequence.begin();
     typename T::iterator front = sequence.begin();
+    int temp = 0;
     front++;
     
     while(front != sequence.end())
     {
         if (*back > *front)
-            std::iter_swap(back, front);
+        {
+           temp = index.at(back);
+           index.at(back) = index.at(front);
+           index.at(front) = temp;
+        }
         back++;
         front++;
         if (front != sequence.end())
@@ -32,43 +37,24 @@ void pair_sort(T &sequence)
 }
 
 template<typename T>
-void save_og_connections(T& sequence, std::map<int, int> &og)
+void make_main_pend(T &sequence, T& pend, T& main, T& index)
 {
     typename T::iterator it;
-    int first = 0;
-    int second = 0;
-
-    for(it = sequence.begin(); it != sequence.end();)
-    {
-        first = *it;
-        ++it;
-        if (it != sequence.end())
-        {
-            second = *it;
-            og.insert(std::pair<int, int>(first, second));
-        }
-        ++it;
-    }
-}
-
-template<typename T>
-void make_main_pend(T &sequence, T& pend)
-{
-    typename T::iterator it;
+    int i = 1;
     
-    for(it = sequence.begin(); it != sequence.end();)
+    for(it = index.begin(); it != index.end(); it++)
     {
-        pend.push_back(*it);
-        sequence.erase(it);
-        ++it;
-        if (it != sequence.end())
-            ++it;
+        i++;
+        if(i % 2 == 0)
+            pend.push_back(sequence.at(*it));
+        else
+            main.push_back(sequence.at(*it));
     }
 }
 
 int calculate_next_jacob(int first, int second)
 {
-    return(first + (2 * second));
+    return(second + (2 * first));
 }
 
 template<typename T>
@@ -80,8 +66,11 @@ T get_jacob_order(T &pend)
     int j = 1;
     int first = 1;
     int second = 3;
-    while (jacob.size() + 1 != pend.size())
+    jacob.push_back(1);
+    while (jacob.size() != pend.size())
     {
+        while (x > (int)pend.size())
+            x--;
         jacob.push_back(x);
         x--;
         if (x == j)
@@ -95,51 +84,61 @@ T get_jacob_order(T &pend)
     return(jacob);
 }
 
+
 template<typename T>
-void insert_pend(T& sequence, T& pend, std::map<int, int> og)
+typename T::iterator get_max(int value, T& sequence, T& index)
+{
+    typename T::iterator ret;
+    for(ret = index.begin(); sequence.at(*index) != value; ret++);
+    return (ret);
+}
+
+template<typename T>
+void insert_pend(T& sequence, T& pend, T& main, T& index)
 {
     T order = get_jacob_order(pend);
-    
-    typename T::iterator it = sequence.begin();
-    sequence.insert(it, pend.at(0));
-    
+
+    typename T::iterator ord_it;
     typename T::iterator pos;
-    int to_insert = 0;
-    for(pos = order.begin(); pos != order.end(); pos++)
+    typename T::iterator max;
+    int value = 0;
+    for(ord_it = order.begin(); ord_it != order.end(); ord_it++)
     {
-        to_insert = pend.at(*pos);
-        it = std::upper_bound(og.begin(), og.find(to_insert), to_insert);
-        sequence.insert(it, to_insert);
+        value = pend.at(*(ord_it) - 1);
+        max = get_max(value, sequence, index);
+        pos = std::upper_bound(main.begin(), max + 1, value);
+        sequence.insert(pos, value);
     }
 }
 
 template<typename T>
 void    PmergeMe<T>::merge_insert_sort()
 {
-    make_main_pend(sequence, pend);
+    T main;
+    T pend;
+    pair_sort(sequence, index);
+    make_main_pend(sequence, main, pend, index);
+
     if (sequence.size() > 1)
-    {
-        pair_sort(sequence);
         merge_insert_sort();
-    }
-    insert_pend(sequence, pend, og);
+    insert_pend(sequence, main, pend, index);
 }
 
 template<typename T>
-PmergeMe<T>::PmergeMe(): sequence(), pend() {};
+PmergeMe<T>::PmergeMe(): sequence() {};
 
 template<typename T>
-PmergeMe<T>::PmergeMe(char **argv, int argc): pend()
+PmergeMe<T>::PmergeMe(char **argv, int argc)
 {
     for(int i = 1; i < argc; i++)
+    {
         sequence.push_back(atoi(argv[i]));
-
-    pair_sort(sequence);
-    save_og_connections(sequence, og);
+        index.push_back(i - 1);
+    }
     merge_insert_sort();
 };
 template<typename T>
-PmergeMe<T>::PmergeMe(const PmergeMe &other): pend()
+PmergeMe<T>::PmergeMe(const PmergeMe &other)
 {
     sequence = other.sequence;
 };
