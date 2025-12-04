@@ -6,7 +6,7 @@
 /*   By: rpedrosa <rpedrosa@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/13 14:39:21 by rpedrosa          #+#    #+#             */
-/*   Updated: 2025/12/02 15:25:21 by rpedrosa         ###   ########.fr       */
+/*   Updated: 2025/12/04 16:12:19 by rpedrosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ class PmergeMe
         PmergeMe<T> &operator=(const PmergeMe &other);
         ~PmergeMe();
 
-        void merge_insert_sort();
+        T merge_insert_sort(T& arg);
         T sequence;
         T index;
 };
