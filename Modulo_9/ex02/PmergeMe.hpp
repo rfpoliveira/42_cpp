@@ -6,7 +6,7 @@
 /*   By: rpedrosa <rpedrosa@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/13 14:39:21 by rpedrosa          #+#    #+#             */
-/*   Updated: 2025/12/04 16:12:19 by rpedrosa         ###   ########.fr       */
+/*   Updated: 2025/12/05 12:38:05 by rpedrosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 #include <cstdlib>
 #include <algorithm>
 #include <vector>
+#include <ctime>
 
 template<typename T>
 class PmergeMe

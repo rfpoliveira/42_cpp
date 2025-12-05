@@ -6,7 +6,7 @@
 /*   By: rpedrosa <rpedrosa@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/13 14:39:18 by rpedrosa          #+#    #+#             */
-/*   Updated: 2025/12/04 16:17:09 by rpedrosa         ###   ########.fr       */
+/*   Updated: 2025/12/05 12:24:26 by rpedrosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,22 +15,22 @@
 template<typename T>
 void pair_sort(T &sequence, T& index)
 {   
-    typename T::iterator back = sequence.begin();
-    typename T::iterator front = sequence.begin();
+    typename T::iterator back = index.begin();
+    typename T::iterator front = index.begin();
     int temp = 0;
     front++;
     
-    while(front != sequence.end())
+    while(front != index.end())
     {
-        if (*back > *front)
+        if (sequence.at(*back) > sequence.at(*front))
         {
-           temp = index.at(back - sequence.begin());
-           index.at(back - sequence.begin()) = index.at(front - sequence.begin());
-           index.at(front - sequence.begin()) = temp;
+           temp = index.at(back - index.begin());
+           index.at(back - index.begin()) = index.at(front - index.begin());
+           index.at(front - index.begin()) = temp;
         }
         back++;
         front++;
-        if (front != sequence.end())
+        if (front != index.end())
             front++;
         back++;
     }
@@ -93,14 +93,16 @@ typename T::iterator find_pair(T& sequence, T& main, int value)
     else
         pair = value - 1;
     if (pair >= (int)sequence.size())
-        return(main.end());
+        pair = main.at(main.size() - 1);
+    if (main.size() == 1)
+            return(main.begin());
     typename T::iterator ret;
     for(ret = main.begin(); ret != main.end(); ret++)
     {
         if (*ret == pair)
             break ;
     }
-    int needle = sequence.at(pair);
+    int needle = sequence.at(value);
     int mid;
     int low = 0;
     int high = ret - main.begin();
@@ -119,6 +121,14 @@ typename T::iterator find_pair(T& sequence, T& main, int value)
 }
 
 template<typename T>
+void r_swap(T& main, int pos1, int pos2)
+{
+    main.at(pos1) = main.at(pos1) + main.at(pos2);
+    main.at(pos2) = main.at(pos1) - main.at(pos2);
+    main.at(pos1) = main.at(pos1) - main.at(pos2);
+}
+
+template<typename T>
 T insert_pend(T& sequence, T& main, T& pend)
 {
     T order = get_jacob_order(pend);
@@ -126,20 +136,16 @@ T insert_pend(T& sequence, T& main, T& pend)
     typename T::iterator ord_it;
     typename T::iterator pos;
     int value = 0;
-    
+
     for(ord_it = order.begin(); ord_it != order.end(); ord_it++)
     {
         value = pend.at(*(ord_it) - 1);
         pos = find_pair(sequence, main, value);
-        if (pos != main.begin())
-            pos--;
         main.insert(pos, value);
-        if (pos == main.begin())
-        {
-            main.at(0) = main.at(0) + main.at(1);
-            main.at(1) = main.at(0) - main.at(1);
-            main.at(0) = main.at(0) - main.at(1);
-        }
+        if (sequence.at(main.at(0)) > sequence.at(main.at(1)))
+            r_swap(main, 0, 1);
+        else if(sequence.at(main.at(main.size() - 1)) < sequence.at(main.at(main.size() - 2)))
+            r_swap(main ,(int)(main.size() - 1), (int)(main.size() - 2));
     }
     return(main);
 }
