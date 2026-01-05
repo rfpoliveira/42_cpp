@@ -30,6 +30,8 @@
 	{
 		if (executor.getGrade() > this->getExecGrade())
 			throw(PresidentialPardonForm::GradeTooLowExeption());
+		if(!getSignStatus())
+			throw(PresidentialPardonForm::NotSigned());
 		std::cout << this->_target << " as been pardoned by Zaphod Beeblebrox!" << std::endl;
 	}
 			

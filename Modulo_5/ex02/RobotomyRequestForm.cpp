@@ -32,6 +32,8 @@
 	{
 		if (executor.getGrade() > this->getExecGrade())
 			throw(RobotomyRequestForm::GradeTooLowExeption());
+		if(!getSignStatus())
+			throw(RobotomyRequestForm::NotSigned());
 		std::cout << "* DRILLING (AND SCREAMING) NOISES *" << std::endl;
 		
 		srand(time(0));

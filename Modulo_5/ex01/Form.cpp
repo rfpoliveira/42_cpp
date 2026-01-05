@@ -12,7 +12,7 @@
 
 #include "Bureaucrat.hpp"
 
-Form::Form(): _name("Default"), _exec_grade(150), _sign_grade(150), _sign(false){}
+Form::Form(): _name("Default"), _sign(false), _sign_grade(150), _exec_grade(150){}
 
 Form::Form(const std::string name, const int sign_grade, const int exec_grade):
 	_name(name), _sign(false), _sign_grade(sign_grade), _exec_grade(exec_grade) 
@@ -36,7 +36,7 @@ Form::Form(const std::string name, const int sign_grade, const int exec_grade):
 	}
 }
 
-Form::Form(const Form &other): _name(other._name), _exec_grade(other._exec_grade), _sign_grade(other._sign_grade), _sign(other._sign){}
+Form::Form(const Form &other): _name(other._name), _sign(other._sign), _sign_grade(other._sign_grade), _exec_grade(other._exec_grade){}
 
 Form& Form::operator=(const Form &other)
 {

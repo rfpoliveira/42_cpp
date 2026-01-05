@@ -32,6 +32,8 @@
 	{
 		if (executor.getGrade() > this->getExecGrade())
 			throw(ShrubberyCreationForm::GradeTooLowExeption());
+		if(!getSignStatus())
+			throw(ShrubberyCreationForm::NotSigned());
 		std::string file_name = this->_target + "_shrubbery";
 		std::ofstream outfile(file_name.c_str());
 		outfile << "              v .   ._, |_  .," << std::endl;
