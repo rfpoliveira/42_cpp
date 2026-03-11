@@ -1,19 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Base.hpp                                           :+:      :+:    :+:   */
+/*   C.hpp                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpedrosa <rpedrosa@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/28 14:54:59 by rpedrosa          #+#    #+#             */
-/*   Updated: 2026/03/11 13:09:06 by rpedrosa         ###   ########.fr       */
+/*   Created: 2026/03/11 10:29:49 by rpedrosa          #+#    #+#             */
+/*   Updated: 2026/03/11 13:06:59 by rpedrosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#pragma once 
 
-class Base
-{
-    public:
-        virtual ~Base() {};
-};
+#include "Base.hpp"
+
+class C: public Base {};

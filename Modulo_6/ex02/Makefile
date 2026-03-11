@@ -6,21 +6,22 @@
 #    By: rpedrosa <rpedrosa@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/09 13:58:20 by rpedrosa          #+#    #+#              #
-#    Updated: 2025/10/28 14:54:44 by rpedrosa         ###   ########.fr        #
+#    Updated: 2026/03/11 11:54:29 by rpedrosa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CPP = c++
+CXX = c++
 
-CPPFLAGS = -Wall -Werror -Wextra -g -std=c++98
+CXXFLAGS = -Wall -Werror -Wextra -g -std=c++98
 
-SRCS = main.cpp Base.cpp
+SRCS = main.cpp
+
 OBJS = $(SRCS:.cpp=.o)
 NAME = Base
 
 all: $(NAME)
 $(NAME): $(OBJS)
-	@$(CPP) $(CPPFLAGS) $(OBJS) -o $(NAME)
+	@$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
 	@echo "$(GRN)[Base compiled]$(D)"
 
 #==============================================================================#
