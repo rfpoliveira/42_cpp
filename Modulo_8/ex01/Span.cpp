@@ -41,6 +41,11 @@ Span& Span::operator=(Span const& other)
 ----------------------------------- MEMBER FUNCTIONS ------------------------------ 
  */
 
+const char *Span::maxsizeExeption::what() const
+{
+	return ("Error: Span at max size already");
+}
+
 void Span::addNumber(int n)
 {
 		try

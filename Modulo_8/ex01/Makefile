@@ -6,13 +6,13 @@
 #    By: rpedrosa <rpedrosa@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/09 13:58:20 by rpedrosa          #+#    #+#              #
-#    Updated: 2025/10/31 11:51:19 by rpedrosa         ###   ########.fr        #
+#    Updated: 2026/03/12 11:34:32 by rpedrosa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CPP = c++
+CXX = c++
 
-CPPFLAGS = -Wall -Werror -Wextra -g -std=c++98
+CXXFLAGS = -Wall -Werror -Wextra -g -std=c++98
 
 SRCS = main.cpp Span.cpp
 OBJS = $(SRCS:.cpp=.o)
@@ -20,7 +20,7 @@ NAME = span
 
 all: $(NAME)
 $(NAME): $(OBJS)
-	@$(CPP) $(CPPFLAGS) $(OBJS) -o $(NAME)
+	@$(CXX) $(CPPFLAGS) $(OBJS) -o $(NAME)
 	@echo "$(GRN)[span compiled]$(D)"
 
 #==============================================================================#

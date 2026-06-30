@@ -30,13 +30,8 @@ class Span
 		class maxsizeExeption: public std::exception
 		{
 			public:
-				virtual const char *what() const throw()
-				{
-					return ("Error: Span at max size already");
-				}
+				virtual const char *what() const throw();
 		};
-
-
 
 		/*utils :*/
 		void print_span(void);

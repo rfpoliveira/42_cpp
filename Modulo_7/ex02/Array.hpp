@@ -6,7 +6,7 @@
 /*   By: rpedrosa <rpedrosa@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 12:09:01 by rpedrosa          #+#    #+#             */
-/*   Updated: 2025/10/29 16:08:36 by rpedrosa         ###   ########.fr       */
+/*   Updated: 2026/06/30 10:19:48 by rpedrosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,10 @@ class Array
         int size(void) const;
         void display_array_adress(void);
 
-		class outofboundsExeption: public std::exception
+		class outofboundsexception: public std::exception
 		{
 			public:
-				virtual const char *what() const throw()
-                {
-                    return ("Could not access memory, index out of bounds");
-                }
+				virtual const char *what() const throw();
 		};
 };
 

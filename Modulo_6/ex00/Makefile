@@ -6,13 +6,13 @@
 #    By: rpedrosa <rpedrosa@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/09 13:58:20 by rpedrosa          #+#    #+#              #
-#    Updated: 2025/10/27 16:37:18 by rpedrosa         ###   ########.fr        #
+#    Updated: 2026/03/11 11:46:45 by rpedrosa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CPP = c++
+CXX = c++
 
-CPPFLAGS = -Wall -Werror -Wextra -g -std=c++98
+CXXFLAGS = -Wall -Werror -Wextra -g -std=c++98
 
 SRCS = main.cpp convert.cpp converters.cpp utils.cpp
 OBJS = $(SRCS:.cpp=.o)
@@ -20,7 +20,7 @@ NAME = convert
 
 all: $(NAME)
 $(NAME): $(OBJS)
-	@$(CPP) $(CPPFLAGS) $(OBJS) -o $(NAME)
+	@$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
 	@echo "$(GRN)[convert compiled]$(D)"
 
 #==============================================================================#

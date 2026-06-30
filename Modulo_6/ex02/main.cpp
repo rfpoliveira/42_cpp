@@ -6,7 +6,7 @@
 /*   By: rpedrosa <rpedrosa@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 15:14:42 by rpedrosa          #+#    #+#             */
-/*   Updated: 2026/03/11 11:56:11 by rpedrosa         ###   ########.fr       */
+/*   Updated: 2026/03/12 10:17:50 by rpedrosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,42 +16,19 @@
 #include "C.hpp"
 
 #include "iostream"
-#include <typeinfo>
 #include <cstdlib>
 
 Base* generate(void)
 {
-    std::srand(time(0));
     int randnumb = std::rand() % 3;
     
-    switch (randnumb)
-    {
-    case 0:
-    {
-        A tmp;
-        Base *ptr = &tmp;
-        return(ptr);
-        break;
-    }
-        case 1:
-    {
-        B tmp;
-        Base *ptr = &tmp;
-        return(ptr);
-        break;
-    }
-        case 2:
-    {
-        C tmp;
-        Base *ptr = &tmp;
-        return(ptr);
-        break;
-    }
-    
-    default:
-        break;
-    }
-    return (NULL);
+    if (randnumb == 0) 
+        return new A;
+    if (randnumb == 1) 
+        return new B;
+    if (randnumb == 2) 
+        return new C;
+    return NULL;
 }
 
 
@@ -92,11 +69,41 @@ void identify(Base* p)
 
 int main (void)
 {
-    Base *ptr = generate();
+    std::srand(time(0));
 
-    std::cout << "Pointer: " << std::endl;
-    identify(ptr);
+    {
+        Base *ptr = generate();
 
-    std::cout << "Reference: " << std::endl;
-    identify(*ptr);
+        std::cout << "Pointer: " << std::endl;
+        identify(ptr);
+
+        std::cout << "Reference: " << std::endl;
+        identify(*ptr);
+
+        delete ptr;
+    }
+
+    {
+        Base *ptr = generate();
+
+        std::cout << "Pointer: " << std::endl;
+        identify(ptr);
+
+        std::cout << "Reference: " << std::endl;
+        identify(*ptr);
+
+        delete ptr;
+    }
+
+    {
+        Base *ptr = generate();
+
+        std::cout << "Pointer: " << std::endl;
+        identify(ptr);
+
+        std::cout << "Reference: " << std::endl;
+        identify(*ptr);
+
+        delete ptr;
+    }
 }

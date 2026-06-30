@@ -1,33 +1,15 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   serial.hpp                                         :+:      :+:    :+:   */
+/*   Base.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpedrosa <rpedrosa@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/28 14:15:02 by rpedrosa          #+#    #+#             */
-/*   Updated: 2026/03/12 10:37:09 by rpedrosa         ###   ########.fr       */
+/*   Created: 2026/03/12 10:04:11 by rpedrosa          #+#    #+#             */
+/*   Updated: 2026/03/12 10:05:11 by rpedrosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SERIAL_HPP
-# define SERIAL_HPP
+#include "Base.hpp"
 
-#include "data.hpp"
-#include "iostream"
-#include <stdint.h>
-
-class Serializer
-{
-    private:
-        Serializer();
-        Serializer(const Serializer &other);
-        Serializer &operator=(const Serializer &other);
-        ~Serializer();
-
-    public:
-        static uintptr_t serialize (Data *ptr);
-        static Data* deserialize (uintptr_t raw);
-};
-
-#endif
+Base::~Base() {};

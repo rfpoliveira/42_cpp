@@ -6,7 +6,7 @@
 /*   By: rpedrosa <rpedrosa@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 12:10:38 by rpedrosa          #+#    #+#             */
-/*   Updated: 2025/10/29 16:09:50 by rpedrosa         ###   ########.fr       */
+/*   Updated: 2026/06/30 10:20:18 by rpedrosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,14 +58,20 @@ Array<T>& Array<T>::operator=(const Array& other)
 }
 
 template<typename T>
+const char *Array<T>::outofboundsexception::what() const throw()
+{
+    return ("Could not access memory, index out of bounds");
+}
+
+template<typename T>
 T& Array<T>::operator[](int i)
 {
     try
     {
         if (i > this->length)
-            throw (Array::outofboundsExeption());
+            throw (Array::outofboundsexception());
     }
-    catch(Array::outofboundsExeption& exep)
+    catch(Array::outofboundsexception& exep)
     {
         std::cout << exep.what() << std::endl;
         return(this->arr[0]);

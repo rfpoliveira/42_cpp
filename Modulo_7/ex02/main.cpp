@@ -6,7 +6,7 @@
 /*   By: rpedrosa <rpedrosa@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 14:23:37 by rpedrosa          #+#    #+#             */
-/*   Updated: 2025/10/29 16:12:03 by rpedrosa         ###   ########.fr       */
+/*   Updated: 2026/06/30 10:19:48 by rpedrosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ int main(void)
     }
 
     {
-        std::cout << "Test 6: exeption" << std::endl << std::endl;
+        std::cout << "Test 6: exception" << std::endl << std::endl;
         Array<int> exep(5);
         exep[10] = 1;
 

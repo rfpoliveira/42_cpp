@@ -6,13 +6,13 @@
 #    By: rpedrosa <rpedrosa@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/09 13:58:20 by rpedrosa          #+#    #+#              #
-#    Updated: 2025/10/29 11:17:41 by rpedrosa         ###   ########.fr        #
+#    Updated: 2026/03/12 11:33:48 by rpedrosa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CPP = c++
+CXX = c++
 
-CPPFLAGS = -Wall -Werror -Wextra -g -std=c++98
+CXXFLAGS = -Wall -Werror -Wextra -g -std=c++98
 
 SRCS = main.cpp
 OBJS = $(SRCS:.cpp=.o)
@@ -20,7 +20,7 @@ NAME = whatever
 
 all: $(NAME)
 $(NAME): $(OBJS)
-	@$(CPP) $(CPPFLAGS) $(OBJS) -o $(NAME)
+	@$(CXX) $(CPPFLAGS) $(OBJS) -o $(NAME)
 	@echo "$(GRN)[whatever compiled]$(D)"
 
 #==============================================================================#

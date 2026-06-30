@@ -6,7 +6,7 @@
 /*   By: rpedrosa <rpedrosa@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 12:56:51 by rpedrosa          #+#    #+#             */
-/*   Updated: 2025/10/28 12:17:39 by rpedrosa         ###   ########.fr       */
+/*   Updated: 2026/03/12 10:10:47 by rpedrosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,11 @@
 class ScalarConverter
 {
     private:
-        ~ScalarConverter();
-    public:
         ScalarConverter();
         ScalarConverter(const ScalarConverter &other);
         ScalarConverter &operator=(const ScalarConverter &other);
+        ~ScalarConverter();
+    public:
         static void convert(std::string);
 };
 

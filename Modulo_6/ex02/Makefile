@@ -6,7 +6,7 @@
 #    By: rpedrosa <rpedrosa@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/09 13:58:20 by rpedrosa          #+#    #+#              #
-#    Updated: 2026/03/11 11:54:29 by rpedrosa         ###   ########.fr        #
+#    Updated: 2026/03/12 10:04:58 by rpedrosa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ CXX = c++
 
 CXXFLAGS = -Wall -Werror -Wextra -g -std=c++98
 
-SRCS = main.cpp
+SRCS = main.cpp Base.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 NAME = Base
