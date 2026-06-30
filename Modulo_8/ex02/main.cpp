@@ -6,7 +6,7 @@
 /*   By: rpedrosa <rpedrosa@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 13:47:28 by rpedrosa          #+#    #+#             */
-/*   Updated: 2025/10/31 16:49:35 by rpedrosa         ###   ########.fr       */
+/*   Updated: 2026/06/30 11:54:57 by rpedrosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int main()
     MutantStack<int>::iterator it = mstack.begin();
     MutantStack<int>::iterator ite = mstack.end();
     std::cout << "begin(expected: 5) : " << *it << std::endl;
-    std::cout << "end : " << *ite << std::endl;
+    std::cout << "end : <end iterator>" << std::endl;
     ++it;
     --it;
     std::cout << "Test 4: expected 5 3 5 737 0: " << std::endl;
@@ -69,7 +69,7 @@ int main()
     std::list<int>::iterator it = mlist.begin();
     std::list<int>::iterator ite = mlist.end();
     std::cout << "begin(expected: 5) : " << *it << std::endl;
-    std::cout << "end : " << *ite << std::endl;
+    std::cout << "end : <end iterator>" << std::endl;
     ++it;
     --it;
     std::cout << "Test 3: expected 5 3 5 737 0: " << std::endl;

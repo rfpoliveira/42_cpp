@@ -16,11 +16,12 @@ template <typename T>
 MutantStack<T>::MutantStack() {}
 
 template <typename T>
-MutantStack<T>::MutantStack(const MutantStack<T>&) {}
+MutantStack<T>::MutantStack(const MutantStack<T>& other): std::stack<T>(other) {}
 
 template <typename T>
-MutantStack<T>&	MutantStack<T>::operator=(MutantStack<T>& value) 
+MutantStack<T>&	MutantStack<T>::operator=(MutantStack<T> const& value)
 {
+	std::stack<T>::operator=(value);
 	return *this;
 }
 

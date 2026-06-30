@@ -17,6 +17,7 @@
 #include <iterator>
 #include <iostream>
 #include <list>
+#include <algorithm>
 
 template<typename T>
 typename T::const_iterator easyfind(T& cont, int i);

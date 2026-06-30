@@ -8,18 +8,13 @@ Span::Span(): numbers(), max_size(0){}
 
 Span::Span(unsigned int N): numbers(), max_size(N) {}
 
-Span::Span(const Span& other)
-{
-	this->max_size = other.max_size;
-	std::list<int> copy(other.numbers);
-	this->numbers = copy;
-}
+Span::Span(const Span& other): numbers(other.numbers), max_size(other.max_size) {}
 
 /*
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-Span::~Span(){}
+Span::~Span() {}
 
 
 /*
@@ -41,7 +36,7 @@ Span& Span::operator=(Span const& other)
 ----------------------------------- MEMBER FUNCTIONS ------------------------------ 
  */
 
-const char *Span::maxsizeExeption::what() const
+const char *Span::maxsizeExeption::what() const throw()
 {
 	return ("Error: Span at max size already");
 }
