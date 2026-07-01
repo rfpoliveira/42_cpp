@@ -6,7 +6,7 @@
 /*   By: rpedrosa <rpedrosa@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/13 12:06:53 by rpedrosa          #+#    #+#             */
-/*   Updated: 2025/11/13 14:35:33 by rpedrosa         ###   ########.fr       */
+/*   Updated: 2026/07/01 15:26:36 by rpedrosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,10 +52,18 @@ bool create_stack(std::string exp, std::stack<int> &stack)
     {
         if(*it == ' ')
             continue ;
-        if(!validate_char(*it))
+        if(!validate_char(*it)) 
             return (false);
         if (*it == '+' || *it == '-' || *it == '/' || *it == '*')
+        {   
+            it++;
+            if (*it != ' ' && it != exp.end())
+                return (false);
+            it--;
+            if (stack.size() < 2)
+                return (false);
             make_operation(*it, stack);
+        }
         else
             stack.push(*it - '0');
     }
