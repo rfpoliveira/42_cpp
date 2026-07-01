@@ -6,7 +6,7 @@
 /*   By: rpedrosa <rpedrosa@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/13 14:39:18 by rpedrosa          #+#    #+#             */
-/*   Updated: 2025/12/05 12:24:26 by rpedrosa         ###   ########.fr       */
+/*   Updated: 2026/07/01 10:42:35 by rpedrosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -167,12 +167,15 @@ template<typename T>
 PmergeMe<T>::PmergeMe(): sequence() {};
 
 template<typename T>
-PmergeMe<T>::PmergeMe(char **argv, int argc)
+PmergeMe<T>::PmergeMe(std::vector<std::string> buff)
 {
-    for(int i = 1; i < argc; i++)
+    std::vector<std::string>::iterator it0;
+    int i = 1;
+    for(it0 = buff.begin(); it0 != buff.end(); it0++)
     {
-        sequence.push_back(atoi(argv[i]));
+        sequence.push_back(std::atoi((*it0).c_str()));
         index.push_back(i - 1);
+        i++;
     }
     T temp = merge_insert_sort(index);
     T buffer;

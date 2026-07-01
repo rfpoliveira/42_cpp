@@ -6,7 +6,7 @@
 /*   By: rpedrosa <rpedrosa@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/13 14:39:21 by rpedrosa          #+#    #+#             */
-/*   Updated: 2025/12/05 12:38:05 by rpedrosa         ###   ########.fr       */
+/*   Updated: 2026/07/01 10:43:48 by rpedrosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,15 @@
 #include <deque>
 #include <cstdlib>
 #include <algorithm>
-#include <vector>
 #include <ctime>
+#include <vector>
 
 template<typename T>
 class PmergeMe
 {
     public:
         PmergeMe();
-        PmergeMe(char **argv, int argc);
+        PmergeMe(std::vector<std::string> buff);
         PmergeMe(const PmergeMe &other);
         PmergeMe<T> &operator=(const PmergeMe &other);
         ~PmergeMe();
